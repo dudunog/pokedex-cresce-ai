@@ -9,18 +9,6 @@ export const AppDataSource = new DataSource({
   username: Environment.infrastructure.database.postgresql.user,
   password: Environment.infrastructure.database.postgresql.password,
   database: Environment.infrastructure.database.postgresql.database,
-  entities: [
-    `${path.resolve(
-      __dirname,
-      "..",
-      "..",
-      "..",
-      "contexts",
-      "**",
-      "external",
-      "entities",
-      "*.{ts,js}",
-    )}`,
-  ],
+  entities: ["./src/contexts/**/external/entities/*.{ts,js}"],
   migrations: [`${__dirname}/migrations/*.{ts,js}`],
 });
