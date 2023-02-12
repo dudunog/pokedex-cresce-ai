@@ -1,2 +1,8 @@
 export { default as Loadable } from './loadable/loadable'
+export { default as Loading } from './loading/loading'
+export { default as Pagination } from './pagination/pagination'
+export { default as PaginationItem } from './pagination/pagination-item'
+export { default as PokemonLogo } from './pokemon-logo/pokemon-logo'
 export { default as Router } from './routes/router'
+export { default as Sidebar } from './sidebar/sidebar'
+export { default as Tags } from './tags/tags'
