@@ -19,24 +19,24 @@ interface PokemonItemProps {
 
 const PokemonItem: React.FC<PokemonItemProps> =
   ({ pokemon }: PokemonItemProps) => {
-    const pokemonColor = POKEMON_TYPES[pokemon.types[0].type.name]
+    const pokemonMainColor = POKEMON_TYPES[pokemon.types[0].type.name]
 
     return (
       <SimpleGrid>
         <Box
           w="100%"
           padding={5}
-          backgroundColor={`${pokemonColor}.50`}
+          backgroundColor={`${pokemonMainColor}.50`}
           borderRadius={20}
         >
           <Tag
             fontWeight="bold"
-            colorScheme={pokemonColor}
+            colorScheme={pokemonMainColor}
           >
             {pokemon.id}
           </Tag>
           <Box borderRadius="lg" overflow="hidden">
-            <Link to={`/pokemon/${pokemon.id}`}>
+            <Link to={`/pokemon/${pokemon.name}`}>
               <Image
                 maxH={160}
                 transform="scale(1.0)"
@@ -60,7 +60,7 @@ const PokemonItem: React.FC<PokemonItemProps> =
             display="flex"
             justifyContent="center"
           >
-            <Link to={`/pokemon/${pokemon.id}`}>
+            <Link to={`/pokemon/${pokemon.name}`}>
               <Heading size="md" color="blackAlpha.700">
                 <Text casing="capitalize" textAlign="center">
                   {pokemon.name}
@@ -70,10 +70,10 @@ const PokemonItem: React.FC<PokemonItemProps> =
           </Box>
           <Box display="flex" justifyContent="center">
             <Tags
-              tags={pokemon.types.map(c => {
+              tags={pokemon.types.map(type => {
                 return {
-                  name: c.type.name,
-                  colorScheme: pokemonColor
+                  name: type.type.name,
+                  colorScheme: POKEMON_TYPES[type.type.name]
                 }
               })}
             />

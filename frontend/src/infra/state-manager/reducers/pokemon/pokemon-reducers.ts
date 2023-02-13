@@ -15,13 +15,16 @@ export const pokemonReducers = {
     state.error = action.payload
   },
 
-  getPokemonsSuccess (state: PokemonState, action: PayloadAction<PokemonListHttpResponse<PokemonDetailsModel[]>>) {
+  getPokemonsSuccess (
+    state: PokemonState,
+    action: PayloadAction<PokemonListHttpResponse<PokemonDetailsModel[]>>
+  ) {
     state.isLoading = false
     state.pokemons = action.payload.results
     state.size = action.payload.count
   },
 
-  getPokemosSuccess (state: PokemonState, action: PayloadAction<any>) {
+  getPokemonSuccess (state: PokemonState, action: PayloadAction<PokemonDetailsModel>) {
     state.isLoading = false
     state.pokemon = action.payload
   },
@@ -37,6 +40,5 @@ export const pokemonReducers = {
   filterPokemons (state: PokemonState, action: PayloadAction<any>) {
     state.filters.limit = action.payload.limit
     state.filters.offset = action.payload.offset
-    state.filters.search = action.payload.search
   }
 }

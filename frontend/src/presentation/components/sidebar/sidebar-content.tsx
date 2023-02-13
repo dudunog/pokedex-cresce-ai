@@ -6,20 +6,31 @@ import {
   type BoxProps,
   Flex,
   useColorModeValue,
-  CloseButton
+  CloseButton,
+  Stack
 } from "@chakra-ui/react"
-import { TbPokeball } from 'react-icons/tb'
-import { RiPlayListAddFill } from 'react-icons/ri'
+import { TbPokeball } from "react-icons/tb"
+import { RiPlayListAddFill } from "react-icons/ri"
 import { type IconType } from "react-icons"
+import { ROUTES } from "@/presentation/components/routes/paths"
 
 interface LinkItemProps {
   name: string
+  path: string
   icon: IconType
 }
 
 const LinkItems: LinkItemProps[] = [
-  { name: 'Pokemons', icon: TbPokeball },
-  { name: 'Meus times', icon: RiPlayListAddFill }
+  {
+    name: "Pokemons",
+    path: ROUTES.root,
+    icon: TbPokeball
+  },
+  {
+    name: "Meus times",
+    path: ROUTES.myTeams,
+    icon: RiPlayListAddFill
+  }
 ]
 
 interface SidebarContentProps extends BoxProps {
@@ -30,10 +41,10 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ onClose, ...rest }) => 
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue('white', 'gray.900')}
+      bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
+      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
       {...rest}
@@ -46,15 +57,17 @@ const SidebarContent: React.FC<SidebarContentProps> = ({ onClose, ...rest }) => 
       >
         <PokemonLogo />
         <CloseButton
-          display={{ base: 'flex', md: 'none' }}
+          display={{ base: "flex", md: "none" }}
           onClick={onClose}
         />
       </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
-      ))}
+      <Stack>
+        {LinkItems.map((link) => (
+          <NavItem key={link.name} icon={link.icon} path={link.path}>
+            {link.name}
+          </NavItem>
+        ))}
+      </Stack>
     </Box>
   )
 }

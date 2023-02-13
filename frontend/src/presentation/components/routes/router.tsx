@@ -1,5 +1,9 @@
 import React from "react"
-import { makeHome, makeMyTeams } from "@/main/factories/pages"
+import {
+  makeHome,
+  makeMyTeams,
+  makePokemonDetails
+} from "@/main/factories/pages"
 import { MainLayout } from "@/presentation/layouts"
 import {
   BrowserRouter,
@@ -15,6 +19,7 @@ const Router: React.FC = () => {
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={makeHome({})} />
+          <Route path="/pokemon/:id" element={makePokemonDetails({})} />
           <Route path="/my-teams" element={makeMyTeams({})} />
         </Route>
       </Routes>

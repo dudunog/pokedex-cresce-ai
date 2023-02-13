@@ -4,4 +4,4 @@ import { makeApiUrl } from "@/main/factories/http"
 import { makeHttpClientDecorator } from "@/main/factories/decorators"
 
 export const makeRemoteFetchPokemon = (): FetchPokemon =>
-  new RemoteFetchPokemon(makeApiUrl("/pokemon/"), makeHttpClientDecorator())
+  new RemoteFetchPokemon(makeApiUrl(""), makeHttpClientDecorator())

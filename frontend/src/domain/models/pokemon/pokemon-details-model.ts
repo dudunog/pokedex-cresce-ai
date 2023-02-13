@@ -14,9 +14,19 @@ type PokemonSprites = {
   }
 }
 
+type PokemonAbility = {
+  ability: {
+    name: string
+    url: string
+  }
+}
+
 export interface PokemonDetailsModel {
   id: number
   name: string
+  height: number
+  weight: number
   types: PokemonTypes[]
   sprites: PokemonSprites
+  abilities: PokemonAbility[]
 }

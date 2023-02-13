@@ -26,7 +26,7 @@ export class RemoteLoadPokemonList implements LoadPokemonList {
 
       const fullPokemons: PokemonDetailsModel[] =
         await Promise.all(pokemonsResponse.results.map(async (pokemon) => {
-          const fetchedPokemon = await this.fetchPokemon.fetch(pokemon.name)
+          const fetchedPokemon = await this.fetchPokemon.fetch(`/pokemon/${pokemon.name}`)
           return {
             ...(fetchedPokemon as PokemonDetailsModel),
             name: pokemon.name

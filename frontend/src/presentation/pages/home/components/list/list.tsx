@@ -19,7 +19,7 @@ const List: React.FC<ListProps> =
   ({ pokemons, page, size, registersPerPage, setPage }) => {
     return (
       <Stack>
-        <Heading color="blackAlpha.800" size="xl" marginBottom={5}>
+        <Heading size="xl" marginBottom={5} color="blackAlpha.800">
           Pokemons
         </Heading>
 

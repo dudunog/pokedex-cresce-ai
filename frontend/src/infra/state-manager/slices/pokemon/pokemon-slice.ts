@@ -11,9 +11,7 @@ const initialState: PokemonState = {
   sortBy: null,
   filters: {
     limit: 20,
-    offset: 0,
-    search: "",
-    orderby: ""
+    offset: 0
   }
 }
 

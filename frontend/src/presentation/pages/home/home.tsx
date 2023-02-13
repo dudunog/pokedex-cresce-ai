@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { PokemonListItem } from './components'
-import { type PokemonState } from '@/data/protocols/state-manager'
-import { useAppSelector } from '@/main/providers/redux-store-provider'
-import { Loading } from '@/presentation/components'
+import React, { useEffect, useState } from "react"
+import { PokemonListItem } from "./components"
+import { type PokemonState } from "@/data/protocols/state-manager"
+import { useAppSelector } from "@/main/providers/redux-store-provider"
+import { Loading } from "@/presentation/components"
 import {
   type LoadPokemonList,
   type StorePokemonList
-} from '@/domain/usecases'
-import { Container } from '@chakra-ui/react'
+} from "@/domain/usecases"
+import { Container } from "@chakra-ui/react"
 
 export interface HomeProps {
   loadPokemonList: LoadPokemonList
@@ -45,11 +45,11 @@ const Home: React.FC<HomeProps> = ({
 
   return (
     // <Flex
-    //   minH='100vh'
-    //   align='center'
-    //   justify='center'
-    //   bg={useColorModeValue('gray.50', 'gray.800')}>
-    //   <Stack spacing={8} mx='auto' maxW='lg' py={12} px={6}>
+    //   minH="100vh"
+    //   align="center"
+    //   justify="center"
+    //   bg={useColorModeValue("gray.50", "gray.800")}>
+    //   <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
     //     <Text>
     //       teste 123
     //     </Text>
