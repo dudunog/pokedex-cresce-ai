@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  OneToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
@@ -21,7 +21,7 @@ export class PoketeamEntity implements PoketeamModel {
   @Column("text", {array: true })
   pokemons: string[];
 
-  @OneToOne(() => UserEntity, (entity: UserEntity) => entity.id)
+  @OneToMany(() => UserEntity, (entity: UserEntity) => entity.id)
   @JoinColumn()
   user: UserEntity;
 
