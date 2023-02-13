@@ -8,12 +8,13 @@ export class CreatePoketeamUseCase implements ICreatePoketeamUseCase {
 
   async execute({
     name,
-    pokemons
+    pokemons,
+    userId
   }: ICreatePoketeamUseCaseDTO): Promise<Result<PoketeamModel>> {
     const poketeam = await this.poketeamRepository.create({
       name,
       pokemons,
-      userId: null
+      userId,
     });
 
     return Result.ok(poketeam);

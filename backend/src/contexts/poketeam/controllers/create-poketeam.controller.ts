@@ -21,7 +21,8 @@ export class CreatePoketeamController implements Controller {
 
       const result = await this.createPoketeamUseCase.execute({
         name,
-        pokemons
+        pokemons,
+        userId: request.account.userId
       });
 
       if (result.isFailure) {
