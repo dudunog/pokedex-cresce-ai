@@ -1,8 +1,11 @@
-import { PoketeamModel } from "@contexts/poketeam/domain/models/poketeam-model.struct";
+import { PoketeamModel } from "@contexts/poketeam/domain/models/poketeam-model.struct"
+import { UserEntity } from "../../../user/external/entities/user-entity";
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
@@ -17,6 +20,13 @@ export class PoketeamEntity implements PoketeamModel {
 
   @Column("text", {array: true })
   pokemons: string[];
+
+  @OneToOne(() => UserEntity, (entity: UserEntity) => entity.id)
+  @JoinColumn()
+  user: UserEntity;
+
+  @Column()
+  userId: string;
 
   @CreateDateColumn()
   createdAt: Date;

@@ -12,7 +12,8 @@ export class CreatePoketeamUseCase implements ICreatePoketeamUseCase {
   }: ICreatePoketeamUseCaseDTO): Promise<Result<PoketeamModel>> {
     const poketeam = await this.poketeamRepository.create({
       name,
-      pokemons
+      pokemons,
+      userId: null
     });
 
     return Result.ok(poketeam);
