@@ -1,5 +1,7 @@
+export * from './array-fields-validation'
 export * from './boolean-fields-validation'
 export * from './custom-validation'
+export * from './invalid-password-validation'
 export * from './number-fields-validation'
 export * from './required-field-validation'
 export * from './text-fields-validation'
