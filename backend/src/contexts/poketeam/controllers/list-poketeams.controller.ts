@@ -1,28 +1,24 @@
 import { badRequest, ok, serverError } from "@shared/helpers/http-helper";
 import { Controller, HttpRequest, HttpResponse } from "@shared/protocols";
 import { IValidation } from "@shared/protocols/validation";
-import { ICreatePoketeamUseCase } from "../usecases/_ports/create-poketeam-usecase.struct";
+import { IListPoketeamsUseCase } from "../usecases/_ports/list-poketeams-usecase.struct";
 
-export class CreatePoketeamController implements Controller {
+export class ListPoketeamsController implements Controller {
   constructor(
-    private readonly createPoketeamUseCase: ICreatePoketeamUseCase,
+    private readonly listPoketeamsUseCase: IListPoketeamsUseCase,
     private readonly validation: IValidation,
   ) {}
 
   async handle(request: HttpRequest): Promise<HttpResponse> {
     try {
-      const error = this.validation.validate(request.body);
+      const error = this.validation.validate(request);
 
       if (error) {
         return badRequest(error);
       }
 
-      const { name, pokemons } = request.body
-
-      const result = await this.createPoketeamUseCase.execute({
-        name,
-        pokemons,
-        userId: request.account.userId
+      const result = await this.listPoketeamsUseCase.execute({
+        userId: request.account.user.id
       });
 
       if (result.isFailure) {
