@@ -25,4 +25,13 @@ export class AxiosHttpClient implements HttpClient {
       body: axiosResponse.data
     }
   }
+
+  async setHeader (header: string, value: string): Promise<void> {
+    axios.defaults.headers.common[header] = value
+  }
+
+  async removeHeader (header: string): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+    delete axios.defaults.headers.common[header]
+  }
 }

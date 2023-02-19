@@ -9,4 +9,12 @@ export class HttpClientDecorator implements HttpClient {
     const httpResponse = await this.httpClient.request(data)
     return httpResponse
   }
+
+  async setHeader (header: string, value: string): Promise<void> {
+    await this.httpClient.setHeader(header, value)
+  }
+
+  async removeHeader (header: string): Promise<void> {
+    await this.httpClient.removeHeader(header)
+  }
 }

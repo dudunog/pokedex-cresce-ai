@@ -7,6 +7,8 @@ export type HttpRequest = {
 
 export interface HttpClient<R = any> {
   request: (data: HttpRequest) => Promise<HttpResponse<R>>
+  setHeader: (header: string, value: string) => Promise<void>
+  removeHeader: (header: string) => Promise<void>
 }
 
 export type HttpMethod = "post" | "get" | "put" | "delete"

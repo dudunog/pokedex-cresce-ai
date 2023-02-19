@@ -1,4 +1,4 @@
-import React, { LazyExoticComponent, Suspense } from "react"
+import React, { type LazyExoticComponent, Suspense } from "react"
 
 const Loadable = (Component: LazyExoticComponent<React.FC>): React.FC => (props: any) => {
   return (
