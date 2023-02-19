@@ -37,7 +37,8 @@ export class AccessAccountController implements Controller {
 
       const {
         id: accountId,
-        email: emailFromAccountUserData
+        email: emailFromAccountUserData,
+        userId
       } = accountWithUserData.getValue();
 
       const session = await this.getSessionUseCase.execute({ accountId });
@@ -68,6 +69,7 @@ export class AccessAccountController implements Controller {
         sessionToken,
         refreshToken,
         userInfo: {
+          userId,
           email: emailFromAccountUserData,
         },
       });
