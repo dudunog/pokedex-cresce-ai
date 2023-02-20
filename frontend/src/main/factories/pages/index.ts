@@ -1,5 +1,5 @@
 export * from './home-factory'
-export * from './my-teams'
 export * from './pokemon-details-factory'
-export * from './signup-factory'
+export * from './poketeams'
 export * from './signin-factory'
+export * from './signup-factory'

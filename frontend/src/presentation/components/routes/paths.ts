@@ -3,5 +3,5 @@ export const ROUTES = {
   pokemonDetails: {
     root: '/pokemon'
   },
-  myTeams: '/my-teams'
+  myTeams: '/poketeams'
 }

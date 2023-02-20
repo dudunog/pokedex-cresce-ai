@@ -1,7 +1,7 @@
 import React from "react"
 import {
   makeHome,
-  makeMyTeams,
+  makePoketeams,
   makePokemonDetails
 } from "@/main/factories/pages"
 import { MainLayout } from "@/presentation/layouts"
@@ -26,7 +26,7 @@ const Router: React.FC = () => {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={makeHome({})} />
           <Route path="/pokemon/:id" element={makePokemonDetails({})} />
-          <Route path="/my-teams" element={makeMyTeams({})} />
+          <Route path="/poketeams" element={makePoketeams({})} />
         </Route>
       </Routes>
     </BrowserRouter>
