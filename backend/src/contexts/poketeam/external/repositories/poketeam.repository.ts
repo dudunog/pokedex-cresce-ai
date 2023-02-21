@@ -16,6 +16,14 @@ export class PoketeamRepository implements IPoketeamRepository {
     return await this.poketeamCollection.save(insertedInvoice);
   }
 
+  async findById(id: string): Promise<PoketeamModel> {
+    return await this.poketeamCollection.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+
   async listByUserId(userId: string): Promise<PoketeamModel[]> {
     return this.poketeamCollection.find({
       where: {

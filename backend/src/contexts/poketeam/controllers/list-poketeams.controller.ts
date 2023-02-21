@@ -27,7 +27,6 @@ export class ListPoketeamsController implements Controller {
 
       return ok(result.getValue());
     } catch (error) {
-      console.log(error)
       return serverError(error);
     }
   }

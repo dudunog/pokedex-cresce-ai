@@ -1,9 +1,9 @@
 import { adaptRoute } from "@main/adapters/express-adapter";
-import { Router } from "express";
-import { makeCreateAccount } from "../factories/create-account.factory";
-import { makeAccessAccount } from "../factories/access-account.factory";
-import { makeGetUser } from "../factories/get-user.factory";
+import { makeCreateAccount } from "@contexts/user/external/factories/create-account.factory";
+import { makeAccessAccount } from "@contexts/user/external/factories/access-account.factory";
+import { makeGetUser } from "@contexts/user/external/factories/get-user.factory";
 import { auth } from "@main/middlewares/auth";
+import { Router } from "express";
 
 export default (router: Router) => {
   router.post("/signup", adaptRoute(makeCreateAccount()));
