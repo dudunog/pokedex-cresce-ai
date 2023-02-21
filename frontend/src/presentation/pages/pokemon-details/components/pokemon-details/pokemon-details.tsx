@@ -1,9 +1,6 @@
 import React from "react"
 import { type PokemonDetailsModel } from "@/domain/models"
-import { Tags } from "@/presentation/components"
-import {
-  POKEMON_TYPES
-} from "@/presentation/pages/home/components/item/types/pokemon-types-colors"
+import { POKEMON_TYPES, Tags } from "@/presentation/components"
 import {
   Box,
   Heading,

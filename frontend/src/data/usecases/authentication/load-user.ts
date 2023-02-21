@@ -14,16 +14,14 @@ export class RemoteLoadUser implements LoadUser {
   async load (userId: string): Promise<LoadUser.Model | undefined> {
     try {
       await this.storeAuthentication.startLoading()
+
       const user = await this.fetchUser.fetch(userId)
 
       if (user) {
         return user
       } else {
-        // await this.storeAuthentication.error(signinErrorResponse)
         throw new UnexpectedError()
       }
-    } catch (error) {
-      // await this.storeAuthentication.error(error)
-    }
+    } catch (error) { }
   }
 }

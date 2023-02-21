@@ -1,10 +1,6 @@
 import React from "react"
 import { type LoadPokemonList } from "@/domain/usecases"
-import { Pagination } from "@/presentation/components"
-import {
-  PokemonItem,
-  PokemonItemEmpty
-} from "@/presentation/pages/home/components"
+import { Pagination, PokemonItem, PokemonItemEmpty } from "@/presentation/components"
 import { Heading, Stack, Wrap } from "@chakra-ui/react"
 
 interface ListProps {

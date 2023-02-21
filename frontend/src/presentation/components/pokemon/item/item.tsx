@@ -1,6 +1,5 @@
 import React from "react"
 import { type PokemonDetailsModel } from "@/domain/models"
-import { Link } from "react-router-dom"
 import {
   Box,
   Heading,
@@ -11,7 +10,7 @@ import {
 } from "@chakra-ui/react"
 import { POKEMON_TYPES } from "./types/pokemon-types-colors"
 import { Tags } from "@/presentation/components"
-// import ArticleImage from "@/presentation/assets/article.png"
+import { Link } from "react-router-dom"
 
 interface PokemonItemProps {
   pokemon: PokemonDetailsModel

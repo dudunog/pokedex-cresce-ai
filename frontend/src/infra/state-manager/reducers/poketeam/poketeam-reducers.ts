@@ -1,5 +1,6 @@
 import { type PoketeamState } from "@/data/protocols/state-manager"
 import {
+  type PoketeamDetailsModel,
   type PoketeamModel
 } from "@/domain/models"
 import { type PayloadAction } from "@reduxjs/toolkit"
@@ -23,7 +24,7 @@ export const poketeamReducers = {
     state.size = action.payload.length
   },
 
-  getPoketeamSuccess (state: PoketeamState, action: PayloadAction<PoketeamModel>) {
+  getPoketeamSuccess (state: PoketeamState, action: PayloadAction<PoketeamDetailsModel>) {
     state.isLoading = false
     state.poketeam = action.payload
   },

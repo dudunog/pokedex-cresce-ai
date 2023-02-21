@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
 import { type PoketeamState } from "@/data/protocols/state-manager"
-import { Container } from "@chakra-ui/react"
 import { useAppSelector } from "@/main/providers"
 import { PoketeamListItem } from "./components"
 import { Loading } from "@/presentation/components"
 import { type LoadPoketeamList } from "@/domain/usecases"
+import { Container } from "@chakra-ui/react"
 
 export interface PoketeamsProps {
   loadPoketeamList: LoadPoketeamList

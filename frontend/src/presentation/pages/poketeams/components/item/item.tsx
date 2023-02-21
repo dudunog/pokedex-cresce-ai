@@ -6,6 +6,7 @@ import {
   Text,
   useColorModeValue
 } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 
 interface PoketeamItemProps {
   poketeam: PoketeamModel
@@ -31,7 +32,9 @@ const PoketeamItem: React.FC<PoketeamItemProps> =
               lineHeight="tight"
               isTruncated
             >
-              {poketeam.name}
+              <Link to={`/poketeam/${poketeam.id}`}>
+                {poketeam.name}
+              </Link>
             </Box>
             <Text>
               {poketeam.pokemons.length} pokemon(s)
