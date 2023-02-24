@@ -3,7 +3,8 @@ import {
   makeHome,
   makePoketeams,
   makePokemonDetails,
-  makePoketeamDetails
+  makePoketeamDetails,
+  makeNewPoketeam
 } from "@/main/factories/pages"
 import { MainLayout } from "@/presentation/layouts"
 import { AuthGuard } from "@/presentation/guards"
@@ -29,6 +30,7 @@ const Router: React.FC = () => {
           <Route path="/pokemon/:id" element={makePokemonDetails({})} />
           <Route path="/poketeams" element={makePoketeams({})} />
           <Route path="/poketeam/:id" element={makePoketeamDetails({})} />
+          <Route path="new-poketeam" element={makeNewPoketeam({})} />
         </Route>
       </Routes>
     </BrowserRouter>

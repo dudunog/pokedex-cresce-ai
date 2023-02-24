@@ -3,5 +3,6 @@ export const ROUTES = {
   pokemonDetails: {
     root: '/pokemon'
   },
-  myTeams: '/poketeams'
+  poketeams: '/poketeams',
+  newPoketeam: '/new-poketeam'
 }

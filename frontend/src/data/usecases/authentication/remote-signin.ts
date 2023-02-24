@@ -4,15 +4,17 @@ import { type SigninHttpErrorResponse, type SigninHttpSuccessResponse } from "@/
 import {
   type UpdateSession,
   type Signin,
-  type StoreAuthentication
+  type StoreAuthentication,
+  type LoadUser
 } from "@/domain/usecases"
 import { makeSigninErrorMessage } from "@/main/factories/information"
 
-export class RemoteAuthentication implements Signin {
+export class RemoteSignin implements Signin {
   constructor (
     private readonly url: string,
     private readonly httpClient: HttpClient<Signin.Model>,
     private readonly storeAuthentication: StoreAuthentication,
+    private readonly loadUser: LoadUser,
     private readonly updateSession: UpdateSession
   ) { }
 
@@ -33,18 +35,13 @@ export class RemoteAuthentication implements Signin {
 
       switch (httpResponse.statusCode) {
         case HttpStatusCode.ok:
-          // const { data: userDetails } = await axios.get<UserDetailsResponse>(`/user/${id}/details`)
+          // eslint-disable-next-line no-case-declarations
+          const user = await this.loadUser.load(signinResponse?.userInfo?.userId)
 
-          // dispatch({
-          //   type: AuthActionKind.LOGIN,
-          //   payload: {
-          //     user: userDetails
-          //   }
-          // })
           this.storeAuthentication.login({
             isAuthenticated: true,
             isInitialized: true,
-            user: signinResponse
+            user
           })
 
           return signinResponse

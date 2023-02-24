@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { PokemonListItem } from "./components"
 import { type PokemonState } from "@/data/protocols/state-manager"
 import { useAppSelector } from "@/main/providers/redux-store-provider"
 import { Loading } from "@/presentation/components"
@@ -8,6 +7,7 @@ import {
   type StorePokemonList
 } from "@/domain/usecases"
 import { Container } from "@chakra-ui/react"
+import { PokemonListItem } from "./components"
 
 export interface HomeProps {
   loadPokemonList: LoadPokemonList

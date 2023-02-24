@@ -3,7 +3,7 @@ import {
   makeRemoteFetchUser,
   makeRemoteStoreAuthentication
 } from "@/main/factories/usecases"
-import { RemoteLoadUser } from "@/data/usecases/authentication/load-user"
+import { RemoteLoadUser } from "@/data/usecases/authentication/remote-load-user"
 
 export const makeRemoteLoadUser = (): LoadUser =>
   new RemoteLoadUser(

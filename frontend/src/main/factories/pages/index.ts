@@ -1,4 +1,5 @@
 export * from './home-factory'
+export * from './new-poketeam'
 export * from './pokemon-details-factory'
 export * from './poketeam-details-factory'
 export * from './poketeams'

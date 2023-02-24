@@ -4,7 +4,7 @@ import { Flex, Spinner } from "@chakra-ui/react"
 const Loading: React.FC = () => {
   return (
     <Flex
-      minH="91vh"
+      minH="81vh"
       align="center"
       justify="center"
       direction="column"

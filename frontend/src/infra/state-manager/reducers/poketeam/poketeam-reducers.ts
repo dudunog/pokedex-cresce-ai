@@ -3,6 +3,7 @@ import {
   type PoketeamDetailsModel,
   type PoketeamModel
 } from "@/domain/models"
+import { type AddPoketeam } from "@/domain/usecases"
 import { type PayloadAction } from "@reduxjs/toolkit"
 
 export const poketeamReducers = {
@@ -27,6 +28,10 @@ export const poketeamReducers = {
   getPoketeamSuccess (state: PoketeamState, action: PayloadAction<PoketeamDetailsModel>) {
     state.isLoading = false
     state.poketeam = action.payload
+  },
+
+  storeNewPoketeam (state: PoketeamState, action: PayloadAction<AddPoketeam.Params | null>) {
+    state.newPoketeam = action.payload
   },
 
   cleanPoketeam (state: PoketeamState) {

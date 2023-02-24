@@ -1,6 +1,6 @@
 import { type ISlice, type AuthenticationState } from "@/data/protocols/state-manager"
-import { type CaseReducerActions, createSlice, type Slice } from "@reduxjs/toolkit"
 import { authenticationReducers } from "@/infra/state-manager/reducers"
+import { type CaseReducerActions, createSlice, type Slice } from "@reduxjs/toolkit"
 
 const initialState: AuthenticationState = {
   isLoading: false,

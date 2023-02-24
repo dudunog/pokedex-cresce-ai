@@ -28,7 +28,7 @@ const LinkItems: LinkItemProps[] = [
   },
   {
     name: "Meus times",
-    path: ROUTES.myTeams,
+    path: ROUTES.poketeams,
     icon: RiPlayListAddFill
   }
 ]

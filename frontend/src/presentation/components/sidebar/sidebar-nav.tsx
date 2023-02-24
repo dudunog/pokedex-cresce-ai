@@ -1,4 +1,5 @@
 import React from "react"
+import { type Logout } from "@/domain/usecases"
 import { type AuthenticationState } from "@/data/protocols/state-manager"
 import { useAppSelector } from "@/main/providers"
 import { PokemonLogo } from "@/presentation/components"
@@ -12,19 +13,26 @@ import {
   Menu,
   MenuButton,
   VStack,
-  Text
+  Text,
+  MenuList,
+  MenuItem
 } from "@chakra-ui/react"
 import { FiMenu } from "react-icons/fi"
 
 interface MobileProps extends FlexProps {
   onOpen: () => void
+  authentication: Logout
 }
 
 const MobileNav: React.FC<MobileProps> =
-  ({ onOpen, ...rest }) => {
+  ({ onOpen, authentication, ...rest }) => {
     const {
       user
     }: AuthenticationState = useAppSelector((state) => state.authentication)
+
+    const handleLogout = async (): Promise<void> => {
+      await authentication.logout()
+    }
 
     return (
       <Flex
@@ -61,11 +69,18 @@ const MobileNav: React.FC<MobileProps> =
                   <VStack
                     display={{ base: "none", md: "flex" }}
                     alignItems="flex-start"
-                    spacing="1px">
-                    <Text fontSize="sm">{user.name}</Text>
+                    spacing="1px"
+                  >
+                    <Text fontSize="sm">{user?.name}</Text>
                   </VStack>
                 </HStack>
               </MenuButton>
+              <MenuList
+                bg={useColorModeValue('white', 'gray.900')}
+                borderColor={useColorModeValue('gray.200', 'gray.700')}
+              >
+                <MenuItem onClick={handleLogout}>Sair</MenuItem>
+              </MenuList>
             </Menu>
           </Flex>
         </HStack>

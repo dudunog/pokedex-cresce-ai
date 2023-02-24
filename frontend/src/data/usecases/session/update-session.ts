@@ -18,7 +18,7 @@ export class RemoteUpdateSession implements UpdateSession {
         localStorage.setItem("pokedex:user", JSON.stringify(user))
         this.httpClient.setHeader("x-access-token", sessionToken)
       } else {
-        localStorage.removeItem("sessionToken")
+        localStorage.removeItem("pokedex:sessionToken")
         localStorage.removeItem("pokedex:refreshToken")
         this.httpClient.removeHeader("x-access-token")
       }

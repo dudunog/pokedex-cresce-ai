@@ -8,6 +8,7 @@ import {
   DrawerContent,
   useDisclosure
 } from '@chakra-ui/react'
+import { makeRemoteLogout } from '@/main/factories/usecases'
 
 interface SidebarProps {
   children?: ReactNode
@@ -36,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         </DrawerContent>
       </Drawer>
 
-      <MobileNav onOpen={onOpen} />
+      <MobileNav onOpen={onOpen} authentication={makeRemoteLogout()} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>

@@ -4,6 +4,6 @@ export interface AuthenticationState {
   isLoading: boolean
   isAuthenticated: boolean
   isInitialized: boolean
-  user: UserModel
+  user: UserModel | null
   error: SigninHttpErrorResponse | null
 };
