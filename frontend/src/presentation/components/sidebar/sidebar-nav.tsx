@@ -76,8 +76,8 @@ const MobileNav: React.FC<MobileProps> =
                 </HStack>
               </MenuButton>
               <MenuList
-                bg={useColorModeValue('white', 'gray.900')}
-                borderColor={useColorModeValue('gray.200', 'gray.700')}
+                bg={useColorModeValue("white", "gray.900")}
+                borderColor={useColorModeValue("gray.200", "gray.700")}
               >
                 <MenuItem onClick={handleLogout}>Sair</MenuItem>
               </MenuList>

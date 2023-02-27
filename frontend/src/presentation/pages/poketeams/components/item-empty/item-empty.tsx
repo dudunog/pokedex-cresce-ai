@@ -4,7 +4,7 @@ import { Text } from "@chakra-ui/react"
 const PoketeamItemEmpty: React.FC = () => {
   return (
     <Text alignSelf="center">
-      Não há poketeam(s) a serem exibidos.
+      Não há time(s) a serem exibidos. Crie seu primeiro time agora mesmo!
     </Text>
   )
 }

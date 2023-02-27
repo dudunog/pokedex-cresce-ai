@@ -17,9 +17,9 @@ export class RemoteLoadSession implements LoadSession {
   async load (): Promise<void> {
     try {
       const userStorage = JSON.parse(window.localStorage
-        .getItem('pokedex:user') as string) as UserModel
-      const sessionToken = window.localStorage.getItem('pokedex:sessionToken')
-      const refreshToken = window.localStorage.getItem('pokedex:sessionToken')
+        .getItem("pokedex:user") as string) as UserModel
+      const sessionToken = window.localStorage.getItem("pokedex:sessionToken")
+      const refreshToken = window.localStorage.getItem("pokedex:sessionToken")
 
       if (sessionToken) {
         this.updateSession.update(sessionToken, String(refreshToken), userStorage)

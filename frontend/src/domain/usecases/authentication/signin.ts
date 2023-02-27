@@ -1,13 +1,13 @@
-import { type SigninError } from "@/domain/errors/signin-error"
+import { type AuthenticationError } from "@/domain/errors/authentication-error"
 import {
-  type SigninHttpErrorResponse,
+  type HttpErrorResponse,
   type SigninHttpSuccessResponse
 } from "@/domain/models"
 
 export interface Signin {
-  signin: (email: string, password: string) => Promise<SigninHttpSuccessResponse | SigninError | undefined>
+  signin: (email: string, password: string) => Promise<SigninHttpSuccessResponse | AuthenticationError | undefined>
 }
 
 export namespace Signin {
-  export type Model = SigninHttpSuccessResponse | SigninHttpErrorResponse
+  export type Model = SigninHttpSuccessResponse | HttpErrorResponse
 }

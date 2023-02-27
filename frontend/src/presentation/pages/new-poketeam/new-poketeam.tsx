@@ -137,7 +137,7 @@ const NewPoketeam: React.FC<NewPoketeamProps> = ({
               mb={4}
               bg="white"
               value={name}
-              placeholder="Nome do poketeam"
+              placeholder="Nome do time"
               onChange={(e) => setName(e.target.value)}
             />
           </Stack>

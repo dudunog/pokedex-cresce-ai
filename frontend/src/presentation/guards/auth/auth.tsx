@@ -1,10 +1,11 @@
-import React, { type ReactNode, useState, useEffect } from 'react'
-import { Loading } from '@/presentation/components'
-import { Navigate, useLocation } from 'react-router-dom'
-import { useAppSelector } from '@/main/providers'
-import { type AuthenticationState } from '@/data/protocols/state-manager'
-import { type LoadSession } from '@/domain/usecases'
-import { makeSignin } from '@/main/factories/pages'
+import React, { type ReactNode, useState, useEffect } from "react"
+import { type LoadSession } from "@/domain/usecases"
+import { type AuthenticationState } from "@/data/protocols/state-manager"
+import { makeSignin, makeSignup } from "@/main/factories/pages"
+import { useAppSelector } from "@/main/providers"
+import { Loading } from "@/presentation/components"
+import { ROUTES } from "@/presentation/components/routes/paths"
+import { Navigate, useLocation } from "react-router-dom"
 
 interface AuthGuardProps {
   children: ReactNode
@@ -36,12 +37,17 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ loadSession, children }) =
       setRequestedLocation(pathname)
     }
 
-    return makeSignin({})
+    if (ROUTES.signin === pathname) return makeSignin({})
+    if (ROUTES.signup === pathname) return makeSignup({})
   }
 
   if (requestedLocation && pathname !== requestedLocation) {
     setRequestedLocation(null)
     return <Navigate to={requestedLocation} />
+  }
+
+  if (isAuthenticated) {
+    if ([ROUTES.signin, ROUTES.signup].includes(pathname)) return <Navigate to={ROUTES.root} />
   }
 
   return <>{children}</>

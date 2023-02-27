@@ -1,6 +1,6 @@
 import { HttpStatusCode, type HttpClient } from "@/data/protocols/http"
-import { SigninError } from "@/domain/errors/signin-error"
-import { type SigninHttpErrorResponse, type SigninHttpSuccessResponse } from "@/domain/models"
+import { AuthenticationError } from "@/domain/errors/authentication-error"
+import { type HttpErrorResponse, type SigninHttpSuccessResponse } from "@/domain/models"
 import {
   type UpdateSession,
   type Signin,
@@ -18,7 +18,7 @@ export class RemoteSignin implements Signin {
     private readonly updateSession: UpdateSession
   ) { }
 
-  async signin (email: string, password: string): Promise<SigninHttpSuccessResponse | SigninError | undefined> {
+  async signin (email: string, password: string): Promise<SigninHttpSuccessResponse | AuthenticationError | undefined> {
     try {
       const httpResponse = await this.httpClient.request({
         url: this.url,
@@ -49,10 +49,10 @@ export class RemoteSignin implements Signin {
           return
         default:
           // eslint-disable-next-line no-case-declarations
-          const signinErrorResponse = signinResponse as unknown as SigninHttpErrorResponse
+          const signinErrorResponse = signinResponse as unknown as HttpErrorResponse
           signinErrorResponse.error = makeSigninErrorMessage(signinErrorResponse.type)
           await this.storeAuthentication.error(signinErrorResponse)
-          return new SigninError(signinErrorResponse.type, signinErrorResponse.type)
+          return new AuthenticationError(signinErrorResponse.type, signinErrorResponse.type)
       }
     } catch (error) {
     }

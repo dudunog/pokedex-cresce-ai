@@ -1,6 +1,6 @@
 import React from "react"
 import { Image } from "@chakra-ui/react"
-import image from '@/presentation/assets/logo-pokemon-79x45.png'
+import image from "@/presentation/assets/logo-pokemon-79x45.png"
 
 const PokemonLogo: React.FC = () => {
   return (

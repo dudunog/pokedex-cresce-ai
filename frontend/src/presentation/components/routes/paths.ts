@@ -1,8 +1,10 @@
 export const ROUTES = {
-  root: '/home',
+  root: "/home",
   pokemonDetails: {
-    root: '/pokemon'
+    root: "/pokemon"
   },
-  poketeams: '/poketeams',
-  newPoketeam: '/new-poketeam'
+  poketeams: "/poketeams",
+  newPoketeam: "/new-poketeam",
+  signin: "/signin",
+  signup: "/signup"
 }

@@ -19,7 +19,7 @@ const List: React.FC<ListProps> =
         <Box
           marginBottom={5}
           display="flex"
-          flexDirection={{ base: 'column', sm: 'row' }}
+          flexDirection={{ base: "column", sm: "row" }}
           justifyContent="space-between"
           gap={3}
         >

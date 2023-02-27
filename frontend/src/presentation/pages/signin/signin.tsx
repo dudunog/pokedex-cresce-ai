@@ -1,7 +1,13 @@
 import React, { useEffect } from "react"
 import { type Signin as SigninUsecase } from "@/domain/usecases"
-import { useAppSelector } from "@/main/providers"
 import { type AuthenticationState } from "@/data/protocols/state-manager"
+import { useAppSelector } from "@/main/providers"
+import { Pokeball } from "@/presentation/components"
+import { ROUTES } from "@/presentation/components/routes/paths"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+import { useNavigate } from "react-router-dom"
 import {
   Button,
   Checkbox,
@@ -11,13 +17,11 @@ import {
   Heading,
   Input,
   Stack,
-  Image,
   FormErrorMessage,
-  useToast
+  useToast,
+  Link,
+  Text
 } from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers/yup"
-import * as yup from "yup"
 
 export type SigninProps = {
   authentication: SigninUsecase
@@ -43,6 +47,7 @@ const Signin: React.FC<SigninProps> = ({
   authentication
 }) => {
   const toast = useToast()
+  const navigate = useNavigate()
 
   const {
     error
@@ -60,15 +65,21 @@ const Signin: React.FC<SigninProps> = ({
   })
 
   const onSubmit = async (data: SigninDataProps): Promise<void> => {
-    await authentication.signin(data.email, data.password)
+    const response = await authentication.signin(data.email, data.password)
+
+    if (response) {
+      navigate(ROUTES.root)
+    }
   }
 
   useEffect(() => {
-    toast({
-      title: error?.error,
-      status: "error",
-      isClosable: true
-    })
+    if (error) {
+      toast({
+        title: error?.error,
+        status: "error",
+        isClosable: true
+      })
+    }
   }, [error])
 
   return (
@@ -107,6 +118,9 @@ const Signin: React.FC<SigninProps> = ({
                 align="start"
                 justify="space-between">
                 <Checkbox>Lembre de mim</Checkbox>
+                <Text align="center">
+                  Não tem uma conta? <Link color="blue.400" href={ROUTES.signup}>Criar conta</Link>
+                </Text>
               </Stack>
               <Button
                 type="submit"
@@ -121,11 +135,7 @@ const Signin: React.FC<SigninProps> = ({
         </Stack>
       </Flex>
       <Flex flex={1}>
-        <Image
-          alt="Pokeball"
-          objectFit="cover"
-          src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        />
+        <Pokeball />
       </Flex>
     </Stack>
   )

@@ -1,5 +1,5 @@
 import { type AuthenticationState } from "@/data/protocols/state-manager"
-import { type SigninHttpErrorResponse } from "@/domain/models"
+import { type HttpErrorResponse } from "@/domain/models"
 import { type PayloadAction } from "@reduxjs/toolkit"
 
 export const authenticationReducers = {
@@ -7,7 +7,7 @@ export const authenticationReducers = {
     state.isLoading = true
   },
 
-  hasError (state: AuthenticationState, action: PayloadAction<SigninHttpErrorResponse>) {
+  hasError (state: AuthenticationState, action: PayloadAction<HttpErrorResponse>) {
     state.isLoading = false
     state.error = action.payload
   },
