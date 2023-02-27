@@ -1,11 +1,11 @@
 import { UserModel } from "@contexts/user/domain/models/user-model.struct";
 import { Result } from "@shared/protocols";
-import { FailedToFetchUserException } from "./_ports/errors/failed-to-fetch-user.exception";
-import { IUserRepository } from "./_ports/repositories/user-repository.struct";
+import { FailedToFetchUserException } from "@contexts/user/usecases/_ports/errors/failed-to-fetch-user.exception";
+import { IUserRepository } from "@contexts/user/usecases/_ports/repositories/user-repository.struct";
 import {
   IGetUserUseCase,
   IGetUserUseCaseRequest,
-} from "./_ports/get-user-usecase.struct";
+} from "@contexts/user/usecases/_ports/get-user-usecase.struct";
 
 export class GetUserUseCase implements IGetUserUseCase {
   constructor(private userRepository: IUserRepository) {}

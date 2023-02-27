@@ -1,11 +1,11 @@
 import { TOKEN_EXPIRATION_TIME } from "@main/constants/times";
 import { Encrypter, Result } from "@shared/protocols";
-import { SessionModel } from "../domain/models/session-model.struct";
-import { ISessionRepository } from "./_ports/repositories/session-repository.struct";
+import { SessionModel } from "@contexts/user/domain/models/session-model.struct";
+import { ISessionRepository } from "@contexts/user/usecases/_ports/repositories/session-repository.struct";
 import {
   IUpdateSessionUseCase,
   IUpdateSessionUseCaseDTO,
-} from "./_ports/update-session-usecase.struct";
+} from "@contexts/user/usecases/_ports/update-session-usecase.struct";
 
 export class UpdateSessionUseCase implements IUpdateSessionUseCase {
   constructor(

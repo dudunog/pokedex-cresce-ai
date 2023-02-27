@@ -1,11 +1,11 @@
 import { Hasher, Result } from "@shared/protocols";
-import { AccountAlreadyExistException } from "./_ports/errors/account-already-exists.exception";
-import { AccountModel } from "../domain/models/account-model.struct";
+import { AccountAlreadyExistException } from "@contexts/user/usecases/_ports/errors/account-already-exists.exception";
+import { AccountModel } from "@contexts/user/domain/models/account-model.struct";
 import {
   ICreateAccountUseCase,
   ICreateAccountUseCaseDTO,
-} from "./_ports/create-account-usecase.struct";
-import { IAccountRepository } from "./_ports/repositories/account-repository.struct";
+} from "@contexts/user/usecases/_ports/create-account-usecase.struct";
+import { IAccountRepository } from "@contexts/user/usecases/_ports/repositories/account-repository.struct";
 
 export class CreateAccountUseCase implements ICreateAccountUseCase {
   constructor(

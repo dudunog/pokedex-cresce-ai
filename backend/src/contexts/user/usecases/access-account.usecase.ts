@@ -1,14 +1,13 @@
 import { HashComparer, Result } from "@shared/protocols";
-import { AccountModel } from "../domain/models/account-model.struct";
-import { IAccountRepository } from "./_ports/repositories/account-repository.struct";
+import { AccountModel } from "@contexts/user/domain/models/account-model.struct";
+import { IAccountRepository } from "@contexts/user/usecases/_ports/repositories/account-repository.struct";
 import {
   IAccessAccountUseCase,
   IAccessAccountUseCaseDTO,
-} from "./_ports/access-account-usecase.struct";
-
-import { IUserRepository } from "./_ports/repositories/user-repository.struct";
-import { UserDoesNotExistException } from "./_ports/errors/user-does-not-exists.exception";
-import { AccountDoesNotExistException } from "./_ports/errors/account-does-not-exist.exception";
+} from "@contexts/user/usecases/_ports/access-account-usecase.struct";
+import { IUserRepository } from "@contexts/user/usecases/_ports/repositories/user-repository.struct";
+import { UserDoesNotExistException } from "@contexts/user/usecases/_ports/errors/user-does-not-exists.exception";
+import { AccountDoesNotExistException } from "@contexts/user/usecases/_ports/errors/account-does-not-exist.exception";
 
 export class AccessAccountAccountUseCase implements IAccessAccountUseCase {
   constructor(

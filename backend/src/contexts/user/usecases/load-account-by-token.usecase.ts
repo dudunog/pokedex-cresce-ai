@@ -1,12 +1,12 @@
 import { Decrypter, Result } from "@shared/protocols";
-import { AccountModel } from "../domain/models/account-model.struct";
-import { FailedToFetchAccountException } from "./_ports/errors/failed-to-fetch-account.exception";
-import { InvalidAccessException } from "./_ports/errors/invalid-access.exception";
+import { AccountModel } from "@contexts/user/domain/models/account-model.struct";
+import { FailedToFetchAccountException } from "@contexts/user/usecases/_ports/errors/failed-to-fetch-account.exception";
+import { InvalidAccessException } from "@contexts/user/usecases/_ports/errors/invalid-access.exception";
 import {
   ILoadAccountByTokenRequest,
   ILoadAccountByTokenUseCase,
-} from "./_ports/load-account-by-token-struct";
-import { IAccountRepository } from "./_ports/repositories/account-repository.struct";
+} from "@contexts/user/usecases/_ports/load-account-by-token-struct";
+import { IAccountRepository } from "@contexts/user/usecases/_ports/repositories/account-repository.struct";
 
 export class LoadAccountByTokenUsecase implements ILoadAccountByTokenUseCase {
   constructor(

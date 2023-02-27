@@ -1,12 +1,12 @@
 import { TOKEN_EXPIRATION_TIME } from "@main/constants/times";
 import { Encrypter, Result } from "@shared/protocols";
-import { SessionModel } from "../domain/models/session-model.struct";
+import { SessionModel } from "@contexts/user/domain/models/session-model.struct";
 import {
   ICreateSessionUseCase,
   ICreateSessionUseCaseDTO,
-} from "./_ports/create-session-usecase.struct";
-import { SessionAlreadyExistsException } from "./_ports/errors/session-already-exists.exception";
-import { ISessionRepository } from "./_ports/repositories/session-repository.struct";
+} from "@contexts/user/usecases/_ports/create-session-usecase.struct";
+import { SessionAlreadyExistsException } from "@contexts/user/usecases/_ports/errors/session-already-exists.exception";
+import { ISessionRepository } from "@contexts/user/usecases/_ports/repositories/session-repository.struct";
 
 export class CreateSessionUseCase implements ICreateSessionUseCase {
   constructor(

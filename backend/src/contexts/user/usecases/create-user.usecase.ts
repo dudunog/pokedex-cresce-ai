@@ -1,11 +1,11 @@
 import { UserModel } from "@contexts/user/domain/models/user-model.struct";
 import { Result } from "@shared/protocols";
 import { UserAlreadyExistsException } from "./_ports/errors/user-already-exists.exception";
-import { IUserRepository } from "./_ports/repositories/user-repository.struct";
+import { IUserRepository } from "@contexts/user/usecases/_ports/repositories/user-repository.struct";
 import {
   ICreateUserUseCase,
   ICreateUserUseCaseDTO,
-} from "./_ports/create-user-usecase.struct";
+} from "@contexts/user/usecases/_ports/create-user-usecase.struct";
 
 export class CreateUserUseCase implements ICreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
