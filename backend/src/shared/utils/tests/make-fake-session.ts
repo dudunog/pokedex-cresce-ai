@@ -14,7 +14,7 @@ export function makeFakeSession(
       refreshToken: "almost-heaven",
       sessionToken: "whest-virginia",
       expiresAt: new Date(),
-      createdA: new Date(),
+      createdAt: new Date(),
       updatedAt: new Date(),
     }),
     accountId: generateRandomText(),

@@ -52,4 +52,22 @@ describe("GetSessionUseCase", () => {
 
     expect(result.error).toEqual(new SessionDoesntExistException());
   });
+
+  it("should return session if sucess", async () => {
+    const { sut, sessionRepository } = makeSut();
+
+    const fakeSession = makeFakeSession(true)
+    await sessionRepository.create(fakeSession);
+
+    const result = await sut.execute({
+      accountId: fakeSession.accountId
+    });
+
+    expect(result.getValue()).toEqual({
+      ...(fakeSession),
+      id: expect.anything(),
+      createdAt: expect.anything(),
+      updatedAt: expect.anything(),
+    });
+  });
 });
