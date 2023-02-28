@@ -1,9 +1,8 @@
 <h1 align="center">
-  <img src="public/blog-icon.png" width="40" />
-  Article Blog
+  Minha pokedex
 </h1>
 
-<p align="center">Minha pokedex.</p>
+<p align="center">Desafio técnico da Cresce.ai</p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT">
