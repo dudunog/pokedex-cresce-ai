@@ -5,4 +5,5 @@ export interface SigninHttpSuccessResponse {
     userId: string
     email: string
   }
+  success: boolean
 }

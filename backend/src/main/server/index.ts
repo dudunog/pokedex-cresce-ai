@@ -1,4 +1,3 @@
-import path from "path";
 import makeApp from "@main/config/app";
 import { Environment } from "@main/config/environment";
 

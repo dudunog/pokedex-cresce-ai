@@ -35,6 +35,8 @@ export class RemoteSignin implements Signin {
 
       switch (httpResponse.statusCode) {
         case HttpStatusCode.ok:
+          signinResponse.success = true
+
           // eslint-disable-next-line no-case-declarations
           const user = await this.loadUser.load(signinResponse?.userInfo?.userId)
 
@@ -46,8 +48,10 @@ export class RemoteSignin implements Signin {
 
           return signinResponse
         case HttpStatusCode.noContent:
+          signinResponse.success = false
           return
         default:
+          signinResponse.success = false
           // eslint-disable-next-line no-case-declarations
           const signinErrorResponse = signinResponse as unknown as HttpErrorResponse
           signinErrorResponse.error = makeSigninErrorMessage(signinErrorResponse.type)

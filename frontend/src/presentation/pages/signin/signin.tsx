@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { SigninHttpSuccessResponse } from "@/domain/models"
 import { type Signin as SigninUsecase } from "@/domain/usecases"
 import { type AuthenticationState } from "@/data/protocols/state-manager"
 import { useAppSelector } from "@/main/providers"
@@ -65,9 +66,9 @@ const Signin: React.FC<SigninProps> = ({
   })
 
   const onSubmit = async (data: SigninDataProps): Promise<void> => {
-    const response = await authentication.signin(data.email, data.password)
+    const response = await authentication.signin(data.email, data.password) as SigninHttpSuccessResponse
 
-    if (response) {
+    if (response.success) {
       navigate(ROUTES.root)
     }
   }

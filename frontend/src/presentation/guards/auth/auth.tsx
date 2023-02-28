@@ -37,8 +37,8 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ loadSession, children }) =
       setRequestedLocation(pathname)
     }
 
-    if (ROUTES.signin === pathname) return makeSignin({})
     if (ROUTES.signup === pathname) return makeSignup({})
+    return makeSignin({})
   }
 
   if (requestedLocation && pathname !== requestedLocation) {
